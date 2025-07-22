@@ -1,0 +1,44 @@
+@startuml
+
+package "Django Models" {
+  class Task {
+    +id: Integer
+    +title: CharField
+    +description: TextField
+    +completed: BooleanField
+    +created_at: DateTimeField
+  }
+}
+
+package "Serializers" {
+  class TaskSerializer {
+    +Meta
+    +create()
+    +update()
+  }
+}
+
+package "Views" {
+  class TaskViewSet {
+    +queryset: QuerySet
+    +serializer_class: TaskSerializer
+    +list()
+    +create()
+    +retrieve()
+    +update()
+    +destroy()
+  }
+}
+
+package "URLs / Router" {
+  class Router {
+    +register()
+    +urls
+  }
+}
+
+Task --> TaskSerializer : used by
+TaskSerializer --> TaskViewSet : used in
+TaskViewSet --> Router : registered in
+
+@enduml
