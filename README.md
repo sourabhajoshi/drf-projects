@@ -14,6 +14,4 @@ This project demonstrates a full-featured API using Django REST Framework coveri
 - Pagination
 - Custom Permissions
 
-
-
 # Advance Apps
